@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Employer extends Model
 {
     use HasFactory;
-    protected $guarded=[];
     public $timestamps = false;
 
     public function user(): BelongsTo

@@ -9,7 +9,7 @@
     <title>Pixel Position</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-black text-white">
+<body class="bg-black text-white pb-20">
 <div class="px-10 ">
     <nav class="flex justify-between items-center py-4 border-b-2 border-white/10 mb-10">
         <div>
@@ -23,7 +23,24 @@
             <a href="#">Companies</a>
             <a href="#">Salaries</a>
         </div>
-        <div><a href="#">Post a Job</a></div>
+        @auth
+            <div class="space-x-6 font-semibold flex items-center">
+                <a href="/jobs/create">Post a Job</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Log Out</button>
+                </form>
+            </div>
+        @endauth
+        @guest
+
+            <div class="space-x-6 font-semibold">
+                <a href="{{ route('register') }}">Sign Up</a>
+                <a href="{{ route('login') }}">Log In</a>
+            </div>
+        @endguest
+
     </nav>
     <main class="max-w-[986px] mx-auto ">
         {{ $slot }}

@@ -13,10 +13,6 @@ class Job extends Model
     /** @use HasFactory<JobFactory> */
     use HasFactory;
 
-    protected $fillable = [
-        'employer_id',
-        'employer_id',
-    ];
     public function tag(string $name) :void
     {
         $tag = Tag::firstOrCreate(['name' => $name]);

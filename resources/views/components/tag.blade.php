@@ -9,5 +9,5 @@ if ($size === 'small'){
 }
 
 @endphp
-<a href="#"
+<a href="/tags/{{ $tag->name}}"
     {{ $attributes->class([$classes]) }}>{{$tag->name}}</a>
